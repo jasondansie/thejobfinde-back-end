@@ -2,12 +2,17 @@ const mongoose = require('mongoose');
 
 require('dotenv').config();
 
+const options = {
+  authSource: "admin",
+  user: "testuser1",
+  pass: "1testuser123",
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+};
+
 const connectDB = async () => {
     try {
-      await mongoose.connect(process.env.MONGO1_URI, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-      });
+      await mongoose.connect(process.env.MONGO1_URI, options);
       console.log('Connected to MongoDB');
     } catch (error) {
       console.error('Failed to connect to MongoDB', error);
