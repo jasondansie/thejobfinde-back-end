@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+console.log("loading model");
 const jobSchema = new mongoose.Schema({
   job: {
     type: String,
