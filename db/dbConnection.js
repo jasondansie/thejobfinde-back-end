@@ -2,10 +2,11 @@ const mongoose = require('mongoose');
 
 require('dotenv').config();
 
+
 const options = {
   authSource: "admin",
-  user: "testuser1",
-  pass: "1testuser123",
+  user: process.env.MONGO_USER,
+  pass: process.env.MONGO_PASS,
   useNewUrlParser: true,
   useUnifiedTopology: true,
 };
