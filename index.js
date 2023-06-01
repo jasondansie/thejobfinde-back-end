@@ -16,7 +16,7 @@ app.use(cors());
 app.use(express.json());
 
 
-app.get("/", (req, res) => {
+app.get("/api/v1/jobs", (req, res) => {
     Job.find({})
   .then(jobs => {
     console.log(jobs);
