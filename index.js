@@ -17,14 +17,15 @@ app.use(express.json());
 
 
 app.get("/api/v1/jobs", (req, res) => {
-    Job.find({})
+    console.log("getting jobs");
+    Job.find()
   .then(jobs => {
     console.log(jobs);
     res.status(200).json(jobs);
   })
   .catch(err => {
     console.error(err);
-    res.status(400)
+    res.status(404)
   });
 });
 
