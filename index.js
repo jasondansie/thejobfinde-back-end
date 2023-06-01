@@ -1,12 +1,24 @@
+const mongoose = require('mongoose');
+
 const express = require('express');
 const app = express();
+const cors = require("cors");
 
-const { port} = require('./serverConfig.json');
+const { port, host } = require('./serverConfig.json');
+
+const connectDB = require('./db/dbConnection');
+
+connectDB();
+
+app.use(cors());
+app.use(express.json());
 
 
 app.get("/", (req, res) => res.type('html').send(html));
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+
+app.listen(port, () => {console.log(`Server is listening on port ${port}...`)});
+  
 
 
 const html = `
