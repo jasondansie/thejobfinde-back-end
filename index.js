@@ -6,6 +6,8 @@ const cors = require("cors");
 
 const { port, host } = require('./serverConfig.json');
 
+const Job = require('./models/jobs');
+
 const connectDB = require('./db/dbConnection');
 
 connectDB();
@@ -14,7 +16,17 @@ app.use(cors());
 app.use(express.json());
 
 
-app.get("/", (req, res) => res.type('html').send(html));
+app.get("/", (req, res) => {
+    Job.find({})
+  .then(jobs => {
+    console.log(jobs);
+    res.status(200).json(jobs);
+  })
+  .catch(err => {
+    console.error(err);
+    res.status(400)
+  });
+});
 
 
 app.listen(port, () => {console.log(`Server is listening on port ${port}...`)});
