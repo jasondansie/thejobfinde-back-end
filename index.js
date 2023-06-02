@@ -28,13 +28,12 @@ app.get("/api/v1/jobs", (req, res) => {
     res.status(404)
   });
 });
-app.put("/api/v1/jobs", (req, res) => {
+app.post("/api/v1/jobs", (req, res) => {
     console.log("adding jobs");
-    const newJob = new Job({
-        job: 'Software Engineer',
-        joblink: 'https://example.com/job/123'
-      });
+    const newJob = new Job(req.body);
+    console.log("newJob: ",newJob );
       newJob.save();
+      res.status(200);
 });
 app.get("/api/v1/jobs/:id", (req, res) => {
     console.log("finding one job");
