@@ -1,4 +1,4 @@
-const mongoose = require('mongodb');
+const mongoose = require('mongoose');
 
 const express = require('express');
 const app = express();
@@ -29,11 +29,16 @@ app.get("/api/v1/jobs", (req, res) => {
   });
 });
 app.post("/api/v1/jobs", (req, res) => {
-    console.log("adding jobs");
-    const newJob = new Job(req.body);
-    console.log("newJob: ",newJob );
-      newJob.save();
-      res.status(200);
+  console.log("adding jobs");
+  const newJob = new Job(req.body);
+  console.log("newJob:", newJob);
+  newJob.save()
+    .then(() => {
+      res.status(200).json({ message: "Job saved successfully." });
+    })
+    .catch((error) => {
+      res.status(500).json({ error: "An error occurred while saving the job." });
+    });
 });
 app.get("/api/v1/jobs/:id", (req, res) => {
     console.log("finding one job");
@@ -45,7 +50,7 @@ app.get("/api/v1/jobs/:id", (req, res) => {
     console.error(err);
   });
 });
-app.delete("/api/v1/jobs/:7", (req, res) => {
+app.delete("/api/v1/jobs/:", (req, res) => {
     Job.findOneAndDelete({ _id: '123' })
   .then(() => {
     console.log('Job deleted successfully');
