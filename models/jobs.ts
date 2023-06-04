@@ -1,6 +1,6 @@
-import mongoose, { Document, Model } from 'mongoose';
+import mongoose, { Document, Model, Schema  } from 'mongoose';
 
-interface IJob extends Document {
+export interface IJob extends Document {
   company: string;
   companyWebSite?: string;
   applicationLink: string;
@@ -14,7 +14,7 @@ interface IJob extends Document {
   applied: boolean;
 }
 
-const jobSchema = new mongoose.Schema<IJob>({
+const jobSchema: Schema<IJob> = new Schema<IJob>({
   company: {
     type: String,
     required: true,
@@ -60,6 +60,7 @@ const jobSchema = new mongoose.Schema<IJob>({
     required: true,
   },
 });
+
 
 const Job: Model<IJob> = mongoose.model<IJob>('Job', jobSchema);
 

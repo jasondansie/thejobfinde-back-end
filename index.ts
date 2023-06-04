@@ -19,21 +19,21 @@ import jobRouter from './routes/jobs';
 
 app.use('/api/v1/jobs', jobRouter);
 
-app.post('/api/v1/jobs', (req: Request, res: Response) => {
-  console.log('adding jobs');
-  const newJob = new Job(req.body);
-  console.log('newJob:', newJob);
-  newJob
-    .save()
-    .then(() => {
-      res.status(200).json({ message: 'Job saved successfully.' });
-    })
-    .catch((error) => {
-      res
-        .status(500)
-        .json({ error: 'An error occurred while saving the job.' });
-    });
-});
+// app.post('/api/v1/jobs', (req: Request, res: Response) => {
+//   console.log('adding jobs');
+//   const newJob = new Job(req.body);
+//   console.log('newJob:', newJob);
+//   newJob
+//     .save()
+//     .then(() => {
+//       res.status(200).json({ message: 'Job saved successfully.' });
+//     })
+//     .catch((error) => {
+//       res
+//         .status(500)
+//         .json({ error: 'An error occurred while saving the job.' });
+//     });
+// });
 
 app.get('/api/v1/jobs/:id', (req: Request, res: Response) => {
   console.log('finding one job');
