@@ -14,31 +14,16 @@ app.use((0, cors_1.default)());
 app.use(express_1.default.json());
 const jobs_2 = __importDefault(require("./routes/jobs"));
 app.use('/api/v1/jobs', jobs_2.default);
-// app.post('/api/v1/jobs', (req: Request, res: Response) => {
-//   console.log('adding jobs');
-//   const newJob = new Job(req.body);
-//   console.log('newJob:', newJob);
-//   newJob
-//     .save()
-//     .then(() => {
-//       res.status(200).json({ message: 'Job saved successfully.' });
+// app.get('/api/v1/jobs/:id', (req: Request, res: Response) => {
+//   console.log('finding one job');
+//   Job.findOneAndUpdate({ _id: '123' }, { job: 'Frontend Developer' })
+//     .then((job) => {
+//       console.log(job);
 //     })
-//     .catch((error) => {
-//       res
-//         .status(500)
-//         .json({ error: 'An error occurred while saving the job.' });
+//     .catch((err) => {
+//       console.error(err);
 //     });
 // });
-app.get('/api/v1/jobs/:id', (req, res) => {
-    console.log('finding one job');
-    jobs_1.default.findOneAndUpdate({ _id: '123' }, { job: 'Frontend Developer' })
-        .then((job) => {
-        console.log(job);
-    })
-        .catch((err) => {
-        console.error(err);
-    });
-});
 app.delete('/api/v1/jobs/:id', (req, res) => {
     jobs_1.default.findOneAndDelete({ _id: '123' })
         .then(() => {
