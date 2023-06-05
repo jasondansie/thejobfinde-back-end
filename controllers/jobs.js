@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteQuestion = exports.addJob = exports.getJobById = exports.getAllJobs = void 0;
+exports.deleteJob = exports.modifyJob = exports.addJob = exports.getJobById = exports.getAllJobs = void 0;
 const jobs_1 = __importDefault(require("../models/jobs"));
 const getAllJobs = async (req, res) => {
     try {
@@ -66,7 +66,28 @@ const addJob = async (req, res) => {
     }
 };
 exports.addJob = addJob;
-const deleteQuestion = async (req, res) => {
-    res.send("delete Question");
+const modifyJob = async (req, res) => {
+    const jobId = req.params.id;
+    const updatedJobData = req.body;
+    try {
+        const modifiedJob = await jobs_1.default.findByIdAndUpdate(jobId, updatedJobData, { new: true });
+        res.status(200).json({ message: 'Job modified successfully.', modifiedJob });
+    }
+    catch (error) {
+        console.error('Error modifying job:', error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
 };
-exports.deleteQuestion = deleteQuestion;
+exports.modifyJob = modifyJob;
+const deleteJob = async (req, res) => {
+    const jobId = req.params.id;
+    try {
+        await jobs_1.default.findByIdAndDelete(jobId);
+        res.status(200).json({ message: 'Job deleted successfully.' });
+    }
+    catch (error) {
+        console.error('Error deleting job:', error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+};
+exports.deleteJob = deleteJob;

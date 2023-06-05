@@ -62,6 +62,27 @@ export const addJob = async (req: Request, res: Response) => {
   }
 };
 
-export const deleteQuestion = async (req: Request, res: Response) => {
-  res.send("delete Question");
+export const modifyJob = async (req: Request, res: Response) => {
+  const jobId = req.params.id;
+  const updatedJobData: Partial<IJob> = req.body;
+
+  try {
+    const modifiedJob = await Job.findByIdAndUpdate(jobId, updatedJobData, { new: true });
+    res.status(200).json({ message: 'Job modified successfully.', modifiedJob });
+  } catch (error) {
+    console.error('Error modifying job:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+};
+
+export const deleteJob = async (req: Request, res: Response) => {
+  const jobId = req.params.id;
+
+  try {
+    await Job.findByIdAndDelete(jobId);
+    res.status(200).json({ message: 'Job deleted successfully.' });
+  } catch (error) {
+    console.error('Error deleting job:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
 };
