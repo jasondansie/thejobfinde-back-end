@@ -5,6 +5,6 @@ const router = Router();
 
 router.route("/").get(getAllJobs).post(addJob);
 
-router.route("/:id").get(getJobById).put(modifyJob).delete(deleteJob);
+router.route("/:id").get(getJobById).post(modifyJob).delete(deleteJob);
 
 export default router as Router;

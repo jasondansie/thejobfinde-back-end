@@ -21,7 +21,6 @@ exports.getAllJobs = getAllJobs;
 // Get a single job by ID
 const getJobById = async (req, res) => {
     const jobId = req.params.id;
-    console.log("id", jobId);
     try {
         const job = await jobs_1.default.findById(jobId);
         if (!job) {
