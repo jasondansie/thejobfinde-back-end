@@ -37,11 +37,11 @@ const jobSchema: Schema<IJob> = new Schema<IJob>({
   },
   dateApplied: {
     type: String,
-    required: true,
+    required: false,
   },
   response: {
     type: String,
-    required: true,
+    required: false,
   },
   reasonToWork: {
     type: String,

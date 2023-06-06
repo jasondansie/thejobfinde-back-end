@@ -43,7 +43,6 @@ export const addJob = async (req: Request, res: Response) => {
       reasonToWork: req.body.reasonToWork,
       recruiterName: req.body.recruiterName,
       recruiterPosition: req.body.recruiterPosition,
-      category: req.body.category,
       applied: req.body.applied,
    });
 

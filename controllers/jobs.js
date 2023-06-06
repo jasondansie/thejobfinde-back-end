@@ -47,7 +47,6 @@ const addJob = async (req, res) => {
             reasonToWork: req.body.reasonToWork,
             recruiterName: req.body.recruiterName,
             recruiterPosition: req.body.recruiterPosition,
-            category: req.body.category,
             applied: req.body.applied,
         });
         if (await newJob.save()) {
