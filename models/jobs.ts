@@ -6,8 +6,8 @@ export interface IJob extends Document {
   applicationLink: string;
   Position: string;
   jobDescription: string;
-  dateApplied: string;
-  response: string;
+  dateApplied?: string;
+  response?: string;
   reasonToWork?: string;
   recruiterName?: string;
   recruiterPosition?: string;
