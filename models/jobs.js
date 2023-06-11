@@ -47,11 +47,11 @@ const jobSchema = new mongoose_1.Schema({
     },
     dateApplied: {
         type: String,
-        required: true,
+        required: false,
     },
     response: {
         type: String,
-        required: true,
+        required: false,
     },
     reasonToWork: {
         type: String,

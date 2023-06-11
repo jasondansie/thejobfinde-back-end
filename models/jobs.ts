@@ -6,8 +6,8 @@ export interface IJob extends Document {
   applicationLink: string;
   Position: string;
   jobDescription: string;
-  dateApplied: string;
-  response: string;
+  dateApplied?: string;
+  response?: string;
   reasonToWork?: string;
   recruiterName?: string;
   recruiterPosition?: string;
@@ -37,11 +37,11 @@ const jobSchema: Schema<IJob> = new Schema<IJob>({
   },
   dateApplied: {
     type: String,
-    required: true,
+    required: false,
   },
   response: {
     type: String,
-    required: true,
+    required: false,
   },
   reasonToWork: {
     type: String,
