@@ -4,7 +4,10 @@ import IJob from "../types/IJobs";
 
 export const getAllJobs = async (req: Request, res: Response) => {
   try {
+    console.log("getting all Jobs");
     const allJobs = await Job.find();
+    console.log("all Jobs found");
+
     res.status(200).json(allJobs);
   } catch (err: any) {
     res.status(400).json({

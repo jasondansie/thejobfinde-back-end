@@ -7,7 +7,9 @@ exports.deleteQuestion = exports.addJob = exports.getJobById = exports.getAllJob
 const jobs_1 = __importDefault(require("../models/jobs"));
 const getAllJobs = async (req, res) => {
     try {
+        console.log("getting all Jobs");
         const allJobs = await jobs_1.default.find();
+        console.log("all Jobs found");
         res.status(200).json(allJobs);
     }
     catch (err) {
