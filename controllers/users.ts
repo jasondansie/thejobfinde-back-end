@@ -2,6 +2,18 @@ import { Request, Response } from "express";
 import User from "../models/users";
 
 
+export const getAllUsers = async (req: Request, res: Response) => {
+    try {
+      const allUser = await User.find();  
+      res.status(200).json(allUser);
+    } catch (err: any) {
+      res.status(400).json({
+        status: 400,
+        message: err.message,
+      });
+    }
+  };
+
 export const addUser = async (req: Request, res: Response) => {
     try {
       const newUser = new User({

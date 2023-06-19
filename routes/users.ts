@@ -1,9 +1,9 @@
 import { Router } from "express";
-import router from "./jobs";
-import { addUser } from "../controllers/users";
+import { addUser, getAllUsers } from "../controllers/users";
 
 
+const router = Router();
 
-const route = Router;
+router.route("/").get(getAllUsers).post(addUser);
 
-router.route("/").post(addUser);
+export default router as Router;
