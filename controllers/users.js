@@ -21,12 +21,12 @@ exports.getAllUsers = getAllUsers;
 const addUser = async (req, res) => {
     try {
         const newUser = new users_1.default({
-            id: req.body.id,
-            name: req.body.name,
-            email: req.body.email,
-            givenName: req.body.givenName,
-            familyName: req.body.familyName,
-            picture: req.body.picture,
+            id: req.body.user.id,
+            name: req.body.user.name,
+            email: req.body.user.email,
+            givenName: req.body.user.given_name,
+            familyName: req.body.user.family_name,
+            picture: req.body.user.picture,
         });
         if (await newUser.save()) {
             res.status(200).json({
