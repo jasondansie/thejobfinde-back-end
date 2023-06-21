@@ -73,6 +73,10 @@ const jobSchema = new mongoose_1.Schema({
         type: String,
         required: false,
     },
+    notes: {
+        type: String,
+        required: false,
+    },
     applied: {
         type: Boolean,
         required: true,

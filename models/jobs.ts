@@ -13,6 +13,7 @@ export interface IJob extends Document {
   recruiterEmail?: string;
   recruiterPhonenumber?: string;
   recruiterPosition?: string;
+  notes?: string;
   applied: boolean;
   userId: String;
 }
@@ -63,6 +64,10 @@ const jobSchema: Schema<IJob> = new Schema<IJob>({
     required: false,
   },
   recruiterPosition: {
+    type: String,
+    required: false,
+  },
+  notes: {
     type: String,
     required: false,
   },

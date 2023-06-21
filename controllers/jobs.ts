@@ -48,6 +48,7 @@ export const addJob = async (req: Request, res: Response) => {
       recruiterEmail: req.body.recruiterEmail,
       recruiterPhonenumber: req.body.recruiterPhonenumber,
       recruiterPosition: req.body.recruiterPosition,
+      notes: req.body.notes,
       applied: req.body.applied,
       userId: req.body.userId,
    });
