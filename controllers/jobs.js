@@ -48,8 +48,11 @@ const addJob = async (req, res) => {
             response: req.body.response,
             reasonToWork: req.body.reasonToWork,
             recruiterName: req.body.recruiterName,
+            recruiterEmail: req.body.recruiterEmail,
+            recruiterPhonenumber: req.body.recruiterPhonenumber,
             recruiterPosition: req.body.recruiterPosition,
             applied: req.body.applied,
+            userId: req.body.userId,
         });
         if (await newJob.save()) {
             res.status(200).json({

@@ -61,12 +61,24 @@ const jobSchema = new mongoose_1.Schema({
         type: String,
         required: false,
     },
+    recruiterEmail: {
+        type: String,
+        required: false,
+    },
+    recruiterPhonenumber: {
+        type: String,
+        required: false,
+    },
     recruiterPosition: {
         type: String,
         required: false,
     },
     applied: {
         type: Boolean,
+        required: true,
+    },
+    userId: {
+        type: String,
         required: true,
     },
 });
