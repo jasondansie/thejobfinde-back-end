@@ -73,6 +73,8 @@ exports.addJob = addJob;
 const modifyJob = async (req, res) => {
     const jobId = req.params.id;
     const updatedJobData = req.body;
+    console.log("jobId", jobId);
+    console.log("updatedJobData", updatedJobData);
     try {
         const modifiedJob = await jobs_1.default.findByIdAndUpdate(jobId, updatedJobData, { new: true });
         res.status(200).json({ message: 'Job modified successfully.', modifiedJob });

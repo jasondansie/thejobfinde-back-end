@@ -5,6 +5,7 @@ export interface IJob extends Document {
   companyWebSite?: string;
   applicationLink: string;
   Position: string;
+  notes: string;
   jobDescription: string;
   dateApplied?: string;
   response?: string;
@@ -13,7 +14,6 @@ export interface IJob extends Document {
   recruiterEmail?: string;
   recruiterPhonenumber?: string;
   recruiterPosition?: string;
-  notes?: string;
   applied: boolean;
   userId: String;
 }
@@ -34,6 +34,10 @@ const jobSchema: Schema<IJob> = new Schema<IJob>({
   Position: {
     type: String,
     required: true,
+  },
+  notes: {
+    type: String,
+    required: false,
   },
   jobDescription: {
     type: String,
@@ -64,10 +68,6 @@ const jobSchema: Schema<IJob> = new Schema<IJob>({
     required: false,
   },
   recruiterPosition: {
-    type: String,
-    required: false,
-  },
-  notes: {
     type: String,
     required: false,
   },

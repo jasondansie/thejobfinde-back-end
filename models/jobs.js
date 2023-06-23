@@ -41,6 +41,10 @@ const jobSchema = new mongoose_1.Schema({
         type: String,
         required: true,
     },
+    notes: {
+        type: String,
+        required: false,
+    },
     jobDescription: {
         type: String,
         required: true,
@@ -70,10 +74,6 @@ const jobSchema = new mongoose_1.Schema({
         required: false,
     },
     recruiterPosition: {
-        type: String,
-        required: false,
-    },
-    notes: {
         type: String,
         required: false,
     },
