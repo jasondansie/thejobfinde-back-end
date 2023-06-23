@@ -70,8 +70,6 @@ export const addJob = async (req: Request, res: Response) => {
 export const modifyJob = async (req: Request, res: Response) => {
   const jobId = req.params.id;
   const updatedJobData: Partial<IJob> = req.body;
-  console.log("jobId", jobId);
-  console.log("updatedJobData", updatedJobData);
 
   try {
     const modifiedJob = await Job.findByIdAndUpdate(jobId, updatedJobData, { new: true });
