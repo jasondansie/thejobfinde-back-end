@@ -52,7 +52,7 @@ export const addJob = async (req: Request, res: Response) => {
       applied: req.body.applied,
       userId: req.body.userId,
    });
-
+    console.log("newJob", newJob);
     if (await newJob.save()) {
       res.status(200).json({
         status: 200,
