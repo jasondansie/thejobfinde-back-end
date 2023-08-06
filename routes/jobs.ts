@@ -3,7 +3,7 @@ import { getAllJobs, addJob, getJobById, modifyJob, deleteJob } from "../control
 
 const router = Router();
 
-router.route("/").get(getAllJobs).post(addJob).delete(deleteJob);
+router.route("/").get(getAllJobs).post(addJob);
 
 router.route("/:id").get(getJobById).post(modifyJob).delete(deleteJob);
 
