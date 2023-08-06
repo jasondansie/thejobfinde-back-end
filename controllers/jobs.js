@@ -38,6 +38,7 @@ const getJobById = async (req, res) => {
 exports.getJobById = getJobById;
 const addJob = async (req, res) => {
     try {
+        console.log("adding job");
         const newJob = new jobs_1.default({
             company: req.body.company,
             companyWebSite: req.body.companyWebSite,
@@ -55,6 +56,7 @@ const addJob = async (req, res) => {
             applied: req.body.applied,
             userId: req.body.userId,
         });
+        console.log("newJob", newJob);
         if (await newJob.save()) {
             res.status(200).json({
                 status: 200,

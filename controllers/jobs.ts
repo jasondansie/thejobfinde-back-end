@@ -35,6 +35,7 @@ export const getJobById = async (req: Request, res: Response) => {
 
 export const addJob = async (req: Request, res: Response) => {
   try {
+    console.log("adding job");
     const newJob = new Job({
       company: req.body.company,
       companyWebSite: req.body.companyWebSite,
